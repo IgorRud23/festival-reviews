@@ -1,12 +1,16 @@
 <div class="center">
   <h1>Sign Up</h1>
+  <h2>
+    <%= session[:notice] %>
+  <% session[:notice] = "" %> <!-- clear error message for future redirects -->
+  </h2>
 
   <form action="/signup" method="POST">
     <lable for="name">User Name:</lable>
-    <input type="text" id="name"/>
+    <input type="text" id="name" name="username"/>
     <br/>
     <lable for="user_password">Password:</lable>
-    <input type="password" id="user_password"/>
+    <input type="password" id="user_password" name="password"/>
     <br/>
     <input type="submit" value="Submit">
   </form>
