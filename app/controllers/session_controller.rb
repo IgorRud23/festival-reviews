@@ -1,3 +1,6 @@
+require 'sinatra/base'
+require 'rack-flash'
+
 class SessionsController < ApplicationController
 
   get '/login' do
@@ -17,11 +20,15 @@ class SessionsController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == ""
-      session[:notice] = "This username is taken, please try something else"
-      redirect 'users/signup'
+    if User.new(:username => params[:username]).valid?
+      redirect 'signup'
+
+    else
+      flash[:error_message] = "Name and password is required"
+      redirect 'signup'
+    end
   end
-end
+
 
 
 
