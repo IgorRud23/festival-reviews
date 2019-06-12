@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   post '/signup' do
-    if User.new(:username => params[:username]).valid?
+    if User.new(params).valid?
       redirect 'signup'
 
     else
