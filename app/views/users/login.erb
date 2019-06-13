@@ -1,14 +1,26 @@
 <div class="center">
   <h1>Login</h1>
-  <form class="center" action="/login" method="POST">
-    <lable for="name">User Name:</lable>
-    <input type="text" id="name" name="user_name"/>
-    <br/>
-    <lable for="user_password">Password:</lable>
-    <input type="password" id="user_password" name="password"/>
-    <br/>
-    <input type="submit" value="Submit">
+
+  <h3 class="error-msg">
+    <% if flash.has?(:login_error) %>
+    <%= flash[:login_error] %>
+    <% end %>
+  </h3>
+
+  <form action="/login" method="POST">
+    <fieldset class="center">
+      <legend>Login</legend>
+      <lable for="name">User Name:</lable>
+      <input type="text" id="name" name="user_name"/>
+      <br/>
+      <lable for="user_password">Password:</lable>
+      <input type="password" id="user_password" name="password"/>
+      <br/>
+      <input type="submit" value="Submit">
+    </fieldset>
   </form>
+
+  <br/>
   <a href="/">Go Back</a>
   <br/>
   <a href="/signup">Sign Up</a>

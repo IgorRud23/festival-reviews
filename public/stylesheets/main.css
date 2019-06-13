@@ -51,6 +51,11 @@
     margin-bottom: 18px;
   }
 
+  li {
+    margin: 16px;
+    font-size: 21px;
+  }
+
   .main {
     overflow: hidden;
   }
@@ -119,4 +124,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 16px;
+  padding: 16px;
+}
+
+.error-msg {
+  color: red;
 }

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   get '/login' do
     if is_logged
-      redirect 'festivals/index'
+      redirect 'festivals'
     else
     erb :"users/login"
   end
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
   get '/signup' do
     if is_logged
-      redirect 'festivals/index'
+      redirect 'festivals'
     else
       erb :"users/signup"
     end
@@ -37,7 +37,7 @@ end
 
     else
       flash[:signup_error] = "Name and password is required or already taken."
-      redirect 'signup'
+      erb :"users/signup"
     end
   end
 
@@ -48,7 +48,7 @@ end
       redirect to "/festivals"
     else
       flash[:login_error] = "User name or password is incorrect. Please try again."
-      redirect to "/login"
+      erb :"users/login"
     end
   end
 

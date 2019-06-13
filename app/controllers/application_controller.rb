@@ -5,8 +5,6 @@ require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
 
-
-
   configure do
     use Rack::Flash
     set :public_folder, 'public'

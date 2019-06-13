@@ -1,4 +1,25 @@
 <div>
-<h1>Festivals list:</h1>
-<a href="/logout">Log Out</a>
+  <h2>Welcome:
+    <%= current_user.user_name %>
+  </h2>
+
+  <div class="center">
+    <a href="/logout">Log Out</a>
+    <br/>
+    <a href="/festivals/new">Create New Festival</a>
+  </div>
+
+  <h1>Festivals list:</h1>
+  <nav>
+    <ul class="center">
+      <% @festivals.each do |festival| %>
+      <li>
+        <a href="'/festivals/<%= festival.id %>">
+          <%= festival.festival_name %>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+  </nav>
+
 </div>
