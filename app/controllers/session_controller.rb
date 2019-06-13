@@ -19,17 +19,26 @@ class SessionsController < ApplicationController
     end
   end
 
+  get '/logout' do
+    if is_logged
+      session.clear
+      redirect '/'
+    else
+      redirect '/'
+  end
+end
+
   post '/signup' do
     if User.new(params).valid?
-      redirect 'signup'
+      @user = User.new(params)
+      @user.save
+      session[:user_id] = @user.id
+      redirect to '/festivals'
 
     else
-      flash[:error_message] = "Name and password is required"
+      flash[:error_message] = "Name and password is required or already taken."
       redirect 'signup'
     end
   end
-
-
-
 
 end
