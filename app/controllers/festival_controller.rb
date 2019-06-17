@@ -45,6 +45,13 @@ end
       redirect "/"
     end
   end
-  
+
+get '/festivals/delete/:festival_id' do
+@festival = Festival.find(params[:festival_id])
+    if @festival.user == current_user
+    @festival.delete
+    redirect "/festivals"
+end
+end
 
 end
