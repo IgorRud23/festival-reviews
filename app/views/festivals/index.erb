@@ -14,7 +14,8 @@
     <ul class="center">
       <% @festivals.each do |festival| %>
       <li>
-        <a href="'/festivals/<%= festival.id %>">
+
+        <a href="/festivals/<%= festival.id %>">
           <%= festival.festival_name %>
         </a>
       </li>

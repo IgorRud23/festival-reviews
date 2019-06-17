@@ -2,5 +2,5 @@ class Review < ActiveRecord::Base
 belongs_to :user
 belongs_to :festival
 
-validates :content, :presence => true 
+validates_length_of :content, minimum: 2, maximum: 300, allow_blank: true
 end

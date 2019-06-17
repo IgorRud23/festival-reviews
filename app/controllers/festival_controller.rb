@@ -27,7 +27,7 @@ class FestivalsController < ApplicationController
 
         redirect "/festivals/#{@festival.id}"
       else
-        flash[:new_festival_error] = "Fesitval name can't be blank or less than 5 symbols."
+        flash[:new_festival_error] = "Fesitval name can't be blank or less than 3 symbols."
         erb :"festivals/new_festival"
       end
 
@@ -39,10 +39,9 @@ end
 
   get '/festivals/:id' do
     if is_logged
-      #@festival = Festival.find(params[:id])
-      #erb :"festivals/show_festival"
-      redirect "/festivals"
-
+      @festival = Festival.find(params[:id])
+      erb :"festivals/show_festival"
+      
     else
       redirect "/"
     end

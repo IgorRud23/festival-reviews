@@ -6,5 +6,6 @@ end
 
 use Rack::MethodOverride
 use FestivalsController
+use ReviewController
 use SessionsController
 run ApplicationController

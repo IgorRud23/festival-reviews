@@ -1,0 +1,31 @@
+<div class="center">
+<h1><%= @festival.festival_name%></h1>
+
+<h4>
+  Created: <%= @festival.created_at %>
+</h4>
+
+<h2>Ruviews</h2>
+
+<ul>
+
+  <% @festival.reviews.each do |review| %>
+  <li>
+    <b> Written by: <%= review.user.user_name %> </b>
+    <p> <%= review.content %> </p>
+    <% if review.user == current_user %>
+      <a href="/reviews/edit/<%= review.id %>" >
+        Edit
+      </a>
+      <a href="/reviews/delete/<%= review.id %>">
+        Delete
+      </a>
+      <% end %>
+  </li>
+  <% end %>
+</ul>
+
+<a href="/reviews/new/<%= @festival.id %>">Add a review</a>
+<a href="/festivals">Back</a>
+
+</div>

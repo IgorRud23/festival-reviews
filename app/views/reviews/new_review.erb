@@ -1,0 +1,21 @@
+<div class="center">
+  <h1><%= @festival.festival_name%></h1>
+    <h3>New Review</h3>
+      <h3 class="error-msg">
+
+        <% if flash.has?(:review_error) %>
+        <%= flash[:review_error] %>
+        <% end %>
+
+      </h3>
+        <form action="/reviews/new/<%=@festival.id%>" method="POST" class="center">
+
+
+            <textarea name="content" rows="20" cols="80"></textarea>
+            <input type="submit" value="Submit">
+
+        </form>
+        <a href="/festivals">
+          Back to Festivals list
+        </a>
+</div>
