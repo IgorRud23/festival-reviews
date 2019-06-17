@@ -14,15 +14,16 @@
     <ul class="center">
       <% @festivals.each do |festival| %>
       <li>
+
+        <a href="/festivals/<%= festival.id %>">
+          <%= festival.festival_name %>
+        </a>
+
         <% if festival.user == current_user %>
           <a href="/festivals/delete/<%= festival.id %>">
             Delete
           </a>
         <% end %>
-
-        <a href="/festivals/<%= festival.id %>">
-          <%= festival.festival_name %>
-        </a>
 
       </li>
       <% end %>

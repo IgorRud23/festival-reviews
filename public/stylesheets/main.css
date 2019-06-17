@@ -61,6 +61,18 @@
     padding: 8px;
   }
 
+  button[type=submit] {
+    margin: 8px auto;
+    padding: 8px 16px;
+    font-size: 21px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  a {
+    margin: 0 16px;
+  }
+
   .main {
     overflow: hidden;
   }

@@ -3,7 +3,7 @@
     <h3>Edit Review</h3>
         <form action="/reviews/edit/<%=@review.id%>/<%=@festival.id%>" method="POST" class="center">
             <textarea name="content" rows="20" cols="80"><%=@review.content%></textarea>
-            <input type="submit" value="Submit">
+            <button type="submit">Submit</button>
 
         </form>
         <a href="/festivals">
