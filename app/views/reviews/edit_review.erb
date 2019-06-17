@@ -1,0 +1,12 @@
+<div class="center">
+  <h1><%= @festival.festival_name%></h1>
+    <h3>Edit Review</h3>
+        <form action="/reviews/edit/<%=@review.id%>/<%=@festival.id%>" method="POST" class="center">
+            <textarea name="content" rows="20" cols="80"><%=@review.content%></textarea>
+            <input type="submit" value="Submit">
+
+        </form>
+        <a href="/festivals">
+          Back to Festivals list
+        </a>
+</div>
