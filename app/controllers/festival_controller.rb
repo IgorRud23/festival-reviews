@@ -22,8 +22,7 @@ class FestivalsController < ApplicationController
     if is_logged
 
       if Festival.new(params).valid?
-        @festival = Festival.new(params)
-        @festival.save
+        @festival = Festival.create(festival_name: params[:festival_name], user_id: current_user.id)
 
         redirect "/festivals/#{@festival.id}"
       else
@@ -41,7 +40,7 @@ end
     if is_logged
       @festival = Festival.find(params[:id])
       erb :"festivals/show_festival"
-      
+
     else
       redirect "/"
     end
