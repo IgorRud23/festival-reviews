@@ -1,6 +1,6 @@
 <div>
   <h2>Welcome:
-    <%= current_user.user_name %>
+    <%= current_user.user_name.upcase %>
   </h2>
 
   <div class="center">
@@ -14,10 +14,10 @@
     <ul class="center">
       <% @festivals.each do |festival| %>
       <li>
-
         <a href="/festivals/<%= festival.id %>">
-          <%= festival.festival_name %>
+          <%= festival.festival_name.upcase %>
         </a>
+        <h6>Created by:<%= festival.user.user_name%></h6>
 
         <% if festival.user == current_user %>
           <a href="/festivals/delete/<%= festival.id %>">
