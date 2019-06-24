@@ -5,13 +5,13 @@
   Created: <%= @festival.created_at %>
 </h4>
 
-<h2>Ruviews</h2>
+<h2>Reviews</h2>
 
 <ul>
 
   <% @festival.reviews.each do |review| %>
   <li>
-    <b> Written by: <%= review.user.user_name %> </b>
+    <h5> Written by: <%= review.user.user_name %> </h5>
     <p> <%= review.content %> </p>
     <% if review.user == current_user %>
         <a href="/reviews/edit/<%= review.id %>/<%= @festival.id %>" >

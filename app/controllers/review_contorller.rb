@@ -1,4 +1,5 @@
 class ReviewController < ApplicationController
+
   get '/reviews/new/:id' do
     if is_logged
       @festival = Festival.find(params[:id])
@@ -13,6 +14,7 @@ class ReviewController < ApplicationController
       Review.create(content: params[:content], festival_id: params[:festival_id], user_id: current_user.id)
       redirect "/festivals/#{params[:festival_id]}"
     else
+      flash[:review_error] = "Add some review"
       redirect "/"
     end
   end
